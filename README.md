@@ -1,27 +1,83 @@
 # Profile Matching Algorithm
 
-A Python-based hybrid profile matching system that combines NLP-based text similarity, MBTI personality compatibility, location matching, and adaptive feedback.
+A Python-based intelligent profile matching system that recommends compatible users by combining **NLP-based profile similarity, MBTI personality compatibility, location compatibility, and user feedback**.
 
-## Project Overview
+The project is designed as a hybrid recommendation system where multiple sources of compatibility are combined into a single score to rank potential matches.
 
-## Key Features
-- NLP-based profile similarity
-- MBTI compatibility
-- Location matching
-- Adaptive feedback
+---
 
-## Project Structure
+## 📌 Project Overview
 
-## Dataset
-- `users.csv`
-- `feedback.csv`
+Traditional recommendation systems often rely on a single type of information. This project explores a **hybrid profile matching approach** that considers both professional and personal characteristics.
 
-## How It Works
+Each user profile contains:
 
-## Installation
+- Personal description
+- Professional summary
+- MBTI personality type
+- Location
 
-## Usage
+The system processes this information and calculates compatibility between users.
 
-## Results / Example
+The matching process combines:
 
-## Future Improvements
+1. **Profile Text Similarity** using TF-IDF and Cosine Similarity
+2. **MBTI Compatibility** based on personality dimensions
+3. **Location Compatibility**
+4. **Hybrid Compatibility Score**
+5. **Adaptive Score** using previous user feedback
+
+---
+
+## 🎯 Objective
+
+The main objective is to develop a profile matching algorithm capable of identifying users who are compatible based on their:
+
+- Professional interests and career goals
+- Personality traits
+- Work style and personal interests
+- Geographic location
+- Previous interaction behavior
+
+The system is designed to demonstrate how multiple compatibility signals can be combined into a single recommendation score.
+
+---
+
+## 🧠 System Architecture
+
+```text
+                User Profiles
+                     │
+                     ▼
+            Profile Preprocessing
+                     │
+                     ▼
+          TF-IDF Text Representation
+                     │
+                     ▼
+          Cosine Text Similarity
+                     │
+        ┌────────────┼────────────┐
+        ▼            ▼            ▼
+   Text Score    MBTI Score   Location Score
+        │            │            │
+        └────────────┼────────────┘
+                     ▼
+             Hybrid Score
+                     │
+                     ▼
+            Previous Feedback
+                     │
+                     ▼
+            Acceptance Rate
+                     │
+                     ▼
+              Adaptive Score
+                     │
+                     ▼
+          ┌──────────────────┐
+          │  Matching Engine │
+          └──────────────────┘
+                     │
+                     ▼
+             Ranked Matches
